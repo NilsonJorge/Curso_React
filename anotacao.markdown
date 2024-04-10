@@ -32,3 +32,8 @@ Em jsx
 ## Iniciando um Componente
 
     Digite rafce e de TAB
+
+## CSS
+
+    Utiliza-se module para não vazar Css para outros componentes
+    XX.module.css
