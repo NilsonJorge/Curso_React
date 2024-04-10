@@ -8,6 +8,10 @@ import ShowUserName from './components/ShowUserName'
 import CarDetails from './components/CarDetails'
 import Fragment from './components/Fragment'
 import Container from './components/Container'
+import ExecuteFuction from './components/ExecuteFuction'
+import Message from './components/Message'
+import ChangeMessageState from './components/ChangeMessageState'
+import UserDetails from './components/UserDetails'
 
 function App() {
   //const name = "Nilson"
@@ -17,7 +21,25 @@ function App() {
     {id: 1, brand: "Ferrari", color: "Amarela", newCar : true, km:0},
     {id: 1, brand: "KIA", color: "Branca", newCar : false, km:4535},
     {id: 1, brand: "Lamborghini", color: "Verde", newCar : false, km:6345},
+  ];
+
+  const people = [
+    {id: 1, name: "Nilson", idade: 21, profissao: "Dev"},
+    {id: 2, name: "Joel", idade: 43, profissao: "Tratorista"},
+    {id: 3, name: "Bastião", idade: 12, profissao: "Estudante"},
+    
   ]
+
+  function showMessage(){
+    console.log("Evento componente pai!");
+  }
+
+  const [message, setMessage] = useState("");
+
+  const handleMessage = (msg) => {
+    setMessage(msg);
+  }
+
   return (
     <>
       <h1>Avançando em React</h1>
@@ -41,7 +63,8 @@ function App() {
       <CarDetails brand = 'Fiat' km={4500} color = 'Preta' newCar = {false}/>
       {/* Loop em array de objetos */}
       {cars.map((car) =>(
-        <CarDetails 
+        <CarDetails
+        key={car.id} 
         brand ={car.brand} 
         color = {car.color}
         km = {car.km}
@@ -54,8 +77,21 @@ function App() {
       <Container myValue = "Teste">
         <p>Este é o conteudo</p>
       </Container>
+      {/* executar funcao*/}
+      <ExecuteFuction myFunction = {showMessage}/>
+      {/*state lift */}
+      <Message msg = {message}/>
+      <ChangeMessageState handleMessage = {handleMessage}/>
+      {/*Desafio 4*/}
+      {people.map((person)=>(
+        <UserDetails
+        key={person.id}
+        name = {person.name}
+        idade = {person.idade}
+        profissao = {person.profissao}
+        />
+      ))}
 
-      
     </>
   )
 }
