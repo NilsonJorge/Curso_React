@@ -37,3 +37,11 @@ Em jsx
 
     Utiliza-se module para não vazar Css para outros componentes
     XX.module.css
+
+## INSTALAR ROUTER
+
+    npm install ract-router-dom
+
+## INSTALAR JSON SERVER
+
+    npm i json-server
