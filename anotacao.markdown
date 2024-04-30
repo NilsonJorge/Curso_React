@@ -45,3 +45,11 @@ Em jsx
 ## INSTALAR JSON SERVER
 
     npm i json-server
+
+## USEREF
+
+    É interessante em casos onde ao atualizar o seu valor ele não deve re-renderizar o componente, diferente do useState
+
+## USECALLBACK
+
+    Impede que uma determinada função seja re-executada durante uma re-renderização de componente

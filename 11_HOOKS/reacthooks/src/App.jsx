@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+
+import { HookUseContext } from './components/HookUseContext'
+
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -12,6 +15,7 @@ function App() {
 
   return (
     <>
+    <HookUseContext>
     <h1>React Hooks</h1>
      <BrowserRouter>
       <ul>
@@ -29,6 +33,7 @@ function App() {
       </Routes>
      
      </BrowserRouter>
+    </HookUseContext>
     </>
   )
 }
