@@ -53,3 +53,7 @@ Em jsx
 ## USECALLBACK
 
     Impede que uma determinada função seja re-executada durante uma re-renderização de componente
+
+## USEMEMO
+
+    Semelhante ao useCAllback, porém para valores.
