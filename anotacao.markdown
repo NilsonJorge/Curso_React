@@ -57,3 +57,9 @@ Em jsx
 ## USEMEMO
 
     Semelhante ao useCAllback, porém para valores.
+
+## INICIANDO PROJETO BACKEND REACTGRAM
+
+     npm init -y
+     npm i bcryptjs cors dotenv express express-validator jsonwebtoken mongoose multer
+     npm i --save-dev nodemon
