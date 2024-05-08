@@ -40,7 +40,7 @@ Em jsx
 
 ## INSTALAR ROUTER
 
-    npm install ract-router-dom
+    npm i react-icons react-router-dom @reduxjs/toolkit
 
 ## INSTALAR JSON SERVER
 

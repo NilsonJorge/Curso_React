@@ -9,13 +9,12 @@
 
 #search-form{
     position: relative;
-    width: 10%;
+    width: 20%;
 }
-
 #search-form svg{
     position: absolute;
-    top: 2px;
-    right: 100px;
+    top: 10px;
+    left: 9px;
 }
 
 #search-form input {
