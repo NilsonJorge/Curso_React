@@ -1,6 +1,6 @@
 import './Message.css'
 
-const message = ({msg, type}) => {
+const Message = ({msg, type}) => {
   return (
     <div className={`message ${type}`}>
         <p>{msg}</p>
@@ -8,4 +8,4 @@ const message = ({msg, type}) => {
   )
 }
 
-export default message
+export default Message
