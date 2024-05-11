@@ -29,7 +29,6 @@ const Navbar = () => {
         navigate("/login")
     }
 
-    console.log(user)
     return (
         <nav id="nav">
             <Link to="/">ReactGram</Link>
