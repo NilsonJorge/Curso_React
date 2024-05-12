@@ -1,9 +1,9 @@
-import {api, requetConfig} from '../utils/config'
+import {api, requestConfig} from '../utils/config'
 
 //Register an user
 
 const register = async(data) => {
-    const config = requetConfig("POST", data)
+    const config = requestConfig("POST", data)
 
     try {
         const res = await fetch(api + "/users/register", config)
@@ -27,7 +27,7 @@ const logout = () => {
 
 //Sing in an user
 const login = async(data) => {
-    const config =  requetConfig("POST",data)
+    const config =  requestConfig("POST",data)
 
     try {
         const res = await fetch(api + "/users/login",config)
