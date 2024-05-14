@@ -14,7 +14,7 @@ import { useParams } from "react-router-dom";
 
 //redux
 import {getUserDetails} from '../../slices/userSlice';
-import { publishPhoto, resetMessage } from "../../slices/photoSlice";
+import { publishPhoto, resetMessage, getUserPhotos, deletePhoto } from "../../slices/photoSlice";
 
 const Profile = () => {
 
@@ -36,15 +36,27 @@ const Profile = () => {
   //load user data
   useEffect(() => {
     dispatch(getUserDetails(id));
+    dispatch(getUserPhotos(id));
   }, [dispatch, id])
   
   const handleFile = (e) => {
-    //image preview
     const image = e.target.files[0]
 
-    //update image state
     setImage(image);
-}
+  }
+
+  const resetComponentMessage = () => {
+    setTimeout(() => {
+      dispatch(resetMessage())
+    }, 2000);
+  }
+
+  //Delete a photo
+  const handleDelete = (id) => {
+    dispatch(deletePhoto(id))
+    
+    resetComponentMessage();
+  }
 
   if(loading){
     return <p>Carregando...</p>
@@ -70,10 +82,7 @@ const Profile = () => {
 
     setTitle("")
 
-    setTimeout(() => {
-      dispatch(resetMessage())
-  }, 2000)
-
+    resetComponentMessage()
   }
 
   return (
@@ -108,6 +117,32 @@ const Profile = () => {
           {messagePhoto && <Message msg={messagePhoto} type="sucess"/>}
           </>
         )}
+        <div className="user-photo">
+          <h2>Fotos publicadas:</h2>
+          <div className="photos-container">
+            {photos && photos.map((photo) => (
+              <div className="photo" key={photo._id}>
+                {photo.image &&
+                (<img src={`${uploads}/photos/${photo.image}`} alt={photo.title}/>)
+                }
+                {id === userAuth._id ? (
+                  <div className="actions">
+                    <Link  to={`/photos/${photo._id}`}>
+                      <BsFillEyeFill/>
+                    </Link>
+                    <BsPencilFill/>
+                    <BsXLg onClick={() => handleDelete(photo._id)}/>
+                  </div>
+                ) : (
+                  <Link className = "btn" to={`/photos/${photo._id}`}>
+                  Ver
+                  </Link>
+                )}
+              </div>
+            ))}
+            {photos.lenght === 0 && <p>Ainda não há fotos publicadas.</p>}
+          </div>
+        </div>
     </div>
   )
 }
