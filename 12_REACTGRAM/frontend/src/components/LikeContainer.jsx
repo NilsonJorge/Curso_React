@@ -2,16 +2,17 @@ import './LikeContainer.css'
 
 import {BsHeart, BsHeartFill} from 'react-icons/bs'
 
-const LikeContainer = ({photo, user, handleLike}) => {
+const LikeContainer = ({photo, user, handleLike, handleDesLike}) => {
   return (
     <div className='like'>
         {photo.likes && user && (
             <>
-                {photos.likes.includes(user._id) ? (
-                    <BsHeartFill/>
+                {photo.likes.includes(user._id) ? (
+                    <BsHeartFill onClick={() => handleDesLike(photo)}/>
                 ) : (
-                    <BsHeart/>
+                    <BsHeart onClick={() => handleLike(photo)}/>
                 )}
+                <p>{photo.likes.length} like(s)</p>
             </>
         ) }
     </div>
